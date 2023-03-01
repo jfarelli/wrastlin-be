@@ -1,5 +1,6 @@
 const PORT = 8000;
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const app = express();
 app.use(cors());
@@ -8,12 +9,12 @@ https: app.locals.data = {
 	wrestlers: [
 		{
 			id: 001,
-			name: '"Macho Man" Randy Savage',
+			name: 'Macho Man Randy Savage',
 			height: '6\' 2"',
 			weight: 248,
 			finisher: ['Diving Elbow Drop'],
 			damage: 7,
-			image: '../images/macho-man.png',
+            image: '/images/macho-man.png'
 		},
 		{
 			id: 002,
@@ -22,7 +23,7 @@ https: app.locals.data = {
 			weight: 275,
 			damage: 9,
 			finisher: ['Axe Bomber \n (Crooked Arm Lariat)', 'Legdrop'],
-			image: '../images/hulk-hogan.png',
+            image: '/images/hulk-hogan.png'
 		},
 		{
 			id: 003,
@@ -34,7 +35,7 @@ https: app.locals.data = {
 				'Warrior Press \n (Gorilla Press Slam)',
 				'Warrior Splash \n (Running Big Splash)',
 			],
-			image: '../images/ultimate-warrior.png',
+            image: '/images/ultimate-warrior.png'
 		},
 		{
 			id: 004,
@@ -48,7 +49,7 @@ https: app.locals.data = {
 				'Tombstone Piledriver',
 			],
 			damage: 10,
-			image: '../images/undertaker.png',
+            image: '/images/undertaker.png'
 		},
 	],
 
@@ -244,14 +245,16 @@ https: app.locals.data = {
 app.set('port', process.env.PORT || PORT);
 app.locals.title = 'wrastlin-be';
 
-app.get('/', (request, response) => {
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+app.get('/', (req, res) => {
 	const data = app.locals.data;
 	if (!data) {
-		response.status(404).send({
+		res.status(404).send({
 			error: `OOOOOHH YEEEAAAHHH!!! The server IS down! Snap into a Slim Jim and try again!`,
 		});
 	}
-	response.send({ data });
+	res.send({ data });
 });
 
 app.listen(app.get('port'), () => {
