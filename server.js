@@ -14,7 +14,7 @@ https: app.locals.data = {
 			weight: 248,
 			finisher: ['Diving Elbow Drop'],
 			damage: 7,
-            image: '/images/macho-man.png'
+            image: '/macho-man.png'
 		},
 		{
 			id: 002,
@@ -23,7 +23,7 @@ https: app.locals.data = {
 			weight: 275,
 			damage: 9,
 			finisher: ['Axe Bomber \n (Crooked Arm Lariat)', 'Legdrop'],
-            image: '/images/hulk-hogan.png'
+            image: '/hulk-hogan.png'
 		},
 		{
 			id: 003,
@@ -35,7 +35,7 @@ https: app.locals.data = {
 				'Warrior Press \n (Gorilla Press Slam)',
 				'Warrior Splash \n (Running Big Splash)',
 			],
-            image: '/images/ultimate-warrior.png'
+            image: '/ultimate-warrior.png'
 		},
 		{
 			id: 004,
@@ -49,7 +49,7 @@ https: app.locals.data = {
 				'Tombstone Piledriver',
 			],
 			damage: 10,
-            image: '/images/undertaker.png'
+            image: '/undertaker.png'
 		},
 	],
 
